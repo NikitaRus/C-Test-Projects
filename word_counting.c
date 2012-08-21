@@ -8,17 +8,24 @@ int main() {
 	
 	
 	state = words = 0;
-	while ((cchar = getchar()) != EOF) {
-		if (cchar == ' ' || cchar == '\n' || cchar == '\t') 
+	while ((cchar = getchar()) != '\n') 
+		if (cchar == ' ' || cchar == '\n' || cchar == '\t') {
 			state = SPACE;
+			printf("\n");
+		}
+		
 		else if (state == SPACE && cchar != ' ') {
 			state = WORD;
 			++words;
+			putchar(cchar);
 			
-		}	
-	}
-	printf("%d", words);		
-	
+		}
+		else {
+			putchar(cchar);
+		}
+			
+		printf("\n%d", words);
 
 	return 0;	
+	
 }
